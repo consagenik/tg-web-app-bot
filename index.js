@@ -47,7 +47,7 @@ app.post('/web-data', async (req, res) => {
       id: queryId,
       title: 'Your order',
       input_message_content: {
-        message_text: `Congratulations! You ordered products with total price of $${totalPrice}.}`,
+        message_text: `Congratulations! You ordered products with total price of $${totalPrice}.\n\nProducts:\n\n${products.map(({name, price}) => `${name} - $${price}`).join('\n')}`,
       },});
 
     res.status(200).json({message: 'OK'});
